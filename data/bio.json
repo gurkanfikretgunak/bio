@@ -119,7 +119,8 @@
     "license": "MIT",
     "repositoryUrl": "https://github.com/gurkanfikretgunak/bio",
     "framework": "Next.js",
-    "year": 2025
+    "year": 2025,
+    "badge": "development"
   },
   "analytics": {
     "type": "analytics",

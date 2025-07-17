@@ -237,6 +237,13 @@ export default function Home() {
             <span>Built with Next.js</span>
           </div>
           
+          <div className="flex items-center justify-center">
+            <div className="inline-flex items-center gap-1 px-2 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 rounded-full text-xs font-medium">
+              <div className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse"></div>
+              {footer.badge}
+            </div>
+          </div>
+          
           <div className="text-xs text-gray-400 dark:text-gray-500 leading-relaxed">
             A modern, minimalist biolink application designed to showcase your digital presence. 
             Perfect for sharing your professional profile, social links, and contact information in one place.
