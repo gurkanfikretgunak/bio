@@ -128,4 +128,40 @@
   .animation-delay-2000 {
     animation-delay: 2s;
   }
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  
+  .rgb-circle {
+    background: conic-gradient(
+      from 0deg,
+      #ff0000 0deg,
+      #ff8000 30deg,
+      #ffff00 60deg,
+      #80ff00 90deg,
+      #00ff00 120deg,
+      #00ff80 150deg,
+      #00ffff 180deg,
+      #0080ff 210deg,
+      #0000ff 240deg,
+      #8000ff 270deg,
+      #ff00ff 300deg,
+      #ff0080 330deg,
+      #ff0000 360deg
+    );
+    animation: spin 2s linear infinite;
+  }
+  
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
 }

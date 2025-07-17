@@ -7,7 +7,12 @@
     "avatar": "/profile-picture.png",
     "location": "Istanbul, Turkey",
     "website": "https://gurkanfikretgunak.com",
-    "verified": true
+    "verified": true,
+    "company": {
+      "name": "MasterFabric",
+      "url": "https://www.masterfabric.co",
+      "icon": "/vercel.svg"
+    }
   },
   "theme": {
     "type": "theme",
@@ -110,6 +115,38 @@
       "color": "#6b7280",
       "featured": false,
       "analytics": false
+    }
+  ],
+  "favorites": [
+    {
+      "type": "favorite",
+      "id": "bio",
+      "name": "bio",
+      "description": "Modern biolink application",
+      "url": "https://github.com/gurkanfikretgunak/bio",
+      "stars": 45,
+      "language": "TypeScript",
+      "languageColor": "#3178c6"
+    },
+    {
+      "type": "favorite",
+      "id": "web-scraper",
+      "name": "web-scraper",
+      "description": "Powerful web scraping tool",
+      "url": "https://github.com/gurkanfikretgunak/web-scraper",
+      "stars": 123,
+      "language": "Python",
+      "languageColor": "#3776ab"
+    },
+    {
+      "type": "favorite",
+      "id": "react-components",
+      "name": "react-components",
+      "description": "Reusable React components",
+      "url": "https://github.com/gurkanfikretgunak/react-components",
+      "stars": 89,
+      "language": "JavaScript",
+      "languageColor": "#f1e05a"
     }
   ],
   "footer": {
