@@ -1,4 +1,4 @@
-import { getClientFirebaseConfig } from "@/lib/firebase/config";
+import { getClientFirebaseConfig } from "@/lib/firebase/clientConfig";
 import { ClientHomePage } from "@/components/ClientHomePage";
 
 /**

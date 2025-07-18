@@ -16,7 +16,7 @@ import { useAvatarEffects } from "@/lib/hooks/useAvatarEffects";
 import { ProfileSkeleton } from "@/components/ui/ProfileSkeleton";
 import { FeaturedLinksSkeleton, AdditionalLinksSkeleton, FooterSkeleton } from "@/components/ui/LinksSkeleton";
 import { BioData } from "@/lib/firebase/remoteConfig";
-import { FirebaseConfig } from "@/lib/firebase/config";
+import { FirebaseConfig } from "@/lib/firebase/clientConfig";
 
 interface ClientHomePageProps {
   firebaseConfig: FirebaseConfig;

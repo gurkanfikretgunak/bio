@@ -1,5 +1,5 @@
 import { fetchAndActivate, getValue, getRemoteConfig } from "firebase/remote-config";
-import { initializeRemoteConfig, FirebaseConfig } from "./config";
+import { initializeRemoteConfig, FirebaseConfig } from "./clientConfig";
 
 // Bio data interface with SEO metadata
 export interface BioData {

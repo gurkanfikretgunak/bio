@@ -15,6 +15,13 @@ export interface GoogleServiceConfig {
 let cachedConfig: GoogleServiceConfig | null = null;
 
 /**
+ * Server-side only function to check if we're running on the server
+ */
+function isServerSide(): boolean {
+  return typeof window === 'undefined';
+}
+
+/**
  * Loads Firebase configuration from google-service.yaml file (Server-side only)
  * @returns GoogleServiceConfig - The parsed Google Service configuration
  */
@@ -24,17 +31,17 @@ export function loadGoogleServiceConfig(): GoogleServiceConfig {
   }
 
   // Check if we're on the server side
-  if (typeof window !== 'undefined') {
+  if (!isServerSide()) {
     throw new Error('loadGoogleServiceConfig can only be called on the server side');
   }
 
   try {
-    // Dynamic imports to avoid client-side issues
+    // Server-side only imports
     const fs = require('fs');
     const path = require('path');
     const yaml = require('js-yaml');
     
-    // Path to the google-service.yaml file in the bio/ directory
+    // Path to the google-service.yaml file
     const yamlPath = path.join(process.cwd(), 'google-service.yaml');
     
     console.log('📄 Loading Firebase configuration from:', yamlPath);

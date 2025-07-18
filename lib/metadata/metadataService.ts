@@ -1,37 +1,24 @@
 import { Metadata } from "next";
 
-// Server-side metadata generation from Firebase Remote Config
+// Server-side metadata generation - Static metadata for Bio App
 export async function generateServerMetadata(): Promise<Metadata> {
   try {
-    console.log('🔄 Generating server-side metadata from Remote Config...');
+    console.log('🔄 Generating static metadata for Bio App...');
     
-    // Dynamic import to avoid client-side bundling
-    const { loadGoogleServiceConfig } = await import("../config/yamlReader");
-    const { fetchBioDataWithRetry } = await import("../firebase/remoteConfig");
-    
-    // Load Firebase config from YAML
-    const config = loadGoogleServiceConfig();
-    
-    // Fetch dynamic bio data from Remote Config (no fallback)
-    const bioData = await fetchBioDataWithRetry(config.firebase, 2, 10000);
-    
-    // Use dynamic SEO data from Remote Config
-    const seo = bioData.seo;
-    const profile = bioData.profile;
-    
+    // Static metadata for Bio App
     const metadata: Metadata = {
-      title: seo.title,
-      description: seo.description,
-      keywords: seo.keywords,
-      authors: [{ name: profile.name, url: profile.website }],
-      creator: profile.name,
-      publisher: seo.siteName,
+      title: "Bio App - Modern Biolink Application",
+      description: "A modern, responsive biolink application similar to Linktree, built with Next.js and TypeScript.",
+      keywords: ["biolink", "profile", "links", "nextjs", "typescript", "portfolio", "social media"],
+      authors: [{ name: "Gurkan Fikret Gunak", url: "https://gurkanfikretgunak.com" }],
+      creator: "Gurkan Fikret Gunak",
+      publisher: "Bio App",
       formatDetection: {
         email: false,
         address: false,
         telephone: false,
       },
-      metadataBase: new URL(seo.metadataBase),
+      metadataBase: new URL("https://gurkanfikretgunak.com"),
       alternates: {
         canonical: "/",
       },
@@ -39,24 +26,24 @@ export async function generateServerMetadata(): Promise<Metadata> {
         type: "website",
         locale: "en_US",
         url: "/",
-        title: seo.title,
-        description: seo.description,
-        siteName: seo.siteName,
+        title: "Bio App - Modern Biolink Application",
+        description: "A modern, responsive biolink application similar to Linktree, built with Next.js and TypeScript.",
+        siteName: "Bio App",
         images: [
           {
-            url: seo.ogImage,
+            url: "/og-image.png",
             width: 1200,
             height: 630,
-            alt: seo.title,
+            alt: "Bio App - Modern Biolink Application",
           },
         ],
       },
       twitter: {
-        card: seo.twitterCard as "summary_large_image",
-        title: seo.title,
-        description: seo.description,
-        images: [seo.ogImage],
-        creator: profile.username ? `@${profile.username}` : undefined,
+        card: "summary_large_image",
+        title: "Bio App - Modern Biolink Application",
+        description: "A modern, responsive biolink application similar to Linktree, built with Next.js and TypeScript.",
+        images: ["/og-image.png"],
+        creator: "@gurkanfikretgunak",
       },
       robots: {
         index: true,
@@ -69,16 +56,13 @@ export async function generateServerMetadata(): Promise<Metadata> {
           "max-snippet": -1,
         },
       },
-      verification: seo.googleVerification ? {
-        google: seo.googleVerification,
-      } : undefined,
     };
     
-    console.log('✅ Dynamic metadata generated successfully from Remote Config');
+    console.log('✅ Static metadata generated successfully for Bio App');
     return metadata;
     
   } catch (error) {
-    console.error('❌ Error generating server-side metadata:', error);
+    console.error('❌ Error generating metadata:', error);
     throw error;
   }
 } 
