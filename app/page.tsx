@@ -170,10 +170,10 @@ export default function Home() {
           <div className="text-center space-y-4 animate-pulse">
             <div className="text-6xl animate-bounce">🎉</div>
             <div className="text-2xl sm:text-3xl text-white font-bold animate-bounce">
-              Surprise!
+              {profile.surpriseText}
             </div>
             <div className="text-lg sm:text-xl text-gray-300">
-              You discovered the secret feature! 🚀
+              {profile.secretFeatureText}
             </div>
             <div className="text-sm text-gray-400">
               You triggered confetti by double-clicking the avatar!
@@ -205,7 +205,7 @@ export default function Home() {
               )}
               {/* Hover hint */}
               <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white px-2 py-1 rounded text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap">
-                {avatarClicks === 0 ? 'Click me!' : 'Click again! 🎉'}
+                {avatarClicks === 0 ? profile.clickMeText : profile.clickAgainText}
               </div>
             </div>
           
@@ -221,7 +221,7 @@ export default function Home() {
               )}
             </div>
             
-            <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 font-medium">Full Stack Developer</p>
+            <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 font-medium">{profile.title}</p>
             
             <a 
               href={profile.company.url} 
@@ -374,7 +374,7 @@ export default function Home() {
           {/* Platform Detection */}
           <div className="text-center mt-3 sm:mt-4">
             <p className="text-xs text-gray-500 dark:text-gray-400">
-              Viewed from {platform}
+              {profile.viewedFromText} {platform}
             </p>
           </div>
         </div>
@@ -433,10 +433,10 @@ export default function Home() {
         isOpen={isQRModalOpen}
         onClose={() => setIsQRModalOpen(false)}
         url={qrUrl}
-        title="Share Profile"
+        title={profile.shareTitle}
         profile={{
           name: profile.name,
-          title: "Full Stack Developer",
+          title: profile.title,
           avatar: profile.avatar
         }}
       />
@@ -451,7 +451,7 @@ export default function Home() {
                 <div className="flex items-center gap-1 sm:gap-2">
                   <Github className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-gray-900 dark:text-white" />
                   <h2 className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-bold text-gray-900 dark:text-white">
-                    GitHub Repositories
+                    {profile.repositoriesTitle}
                   </h2>
                 </div>
                 <button

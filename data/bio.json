@@ -3,6 +3,7 @@
     "type": "profile",
     "name": "Gurkan Fikret Gunak",
     "username": "gurkanfikretgunak",
+    "title": "Full Stack Developer",
     "bio": "Full-stack developer passionate about creating modern web applications. Building with Next.js, TypeScript, and cutting-edge technologies.",
     "avatar": "/profile-picture.png",
     "location": "Istanbul, Turkey",
@@ -12,7 +13,14 @@
       "name": "MasterFabric",
       "url": "https://www.masterfabric.co",
       "icon": "/vercel.svg"
-    }
+    },
+    "shareTitle": "Share Profile",
+    "repositoriesTitle": "GitHub Repositories",
+    "viewedFromText": "Viewed from",
+    "clickMeText": "Click me!",
+    "clickAgainText": "Click again! 🎉",
+    "surpriseText": "Surprise!",
+    "secretFeatureText": "You discovered the secret feature! 🚀"
   },
   "theme": {
     "type": "theme",
@@ -47,24 +55,12 @@
     {
       "type": "link",
       "subtype": "social",
-      "id": "linkedin",
-      "title": "LinkedIn",
-      "description": "Connect with me professionally",
-      "url": "https://linkedin.com/in/gurkanfikretgunak",
-      "icon": "linkedin",
-      "color": "#0077b5",
-      "featured": true,
-      "analytics": true
-    },
-    {
-      "type": "link",
-      "subtype": "social",
       "id": "x",
       "title": "X",
       "description": "Follow my thoughts and updates",
       "url": "https://x.com/gurkanfikretgunak",
       "icon": "twitter",
-      "color": "#1d9bf0",
+      "color": "#000000",
       "featured": true,
       "analytics": true
     },
@@ -77,6 +73,18 @@
       "url": "https://gurkanfikretgunak.com/portfolio",
       "icon": "portfolio",
       "color": "#6366f1",
+      "featured": true,
+      "analytics": true
+    },
+    {
+      "type": "link",
+      "subtype": "social",
+      "id": "linkedin",
+      "title": "LinkedIn",
+      "description": "Connect with me professionally",
+      "url": "https://linkedin.com/in/gurkanfikretgunak",
+      "icon": "linkedin",
+      "color": "#0077b5",
       "featured": true,
       "analytics": true
     },
