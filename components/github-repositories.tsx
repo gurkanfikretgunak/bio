@@ -14,8 +14,6 @@ import {
   ExternalLink,
   Heart
 } from 'lucide-react';
-import bioData from "../data/bio.json";
-
 interface Repository {
   id: string;
   name: string;
@@ -30,70 +28,30 @@ interface Repository {
   isPrivate: boolean;
 }
 
+interface GitHubRepositoriesProps {
+  repositories?: Repository[];
+  favorites: Array<{
+    id: string;
+    name: string;
+    description: string;
+    url: string;
+    stars: number;
+    language: string;
+    languageColor: string;
+  }>;
+  profile: {
+    name: string;
+    username: string;
+    shareTitle: string;
+    avatar: string;
+    title: string;
+  };
+}
 
-
-const mockRepositories: Repository[] = [
-  {
-    id: '1',
-    name: 'bio',
-    description: 'Modern biolink application built with Next.js and TypeScript',
-    url: 'https://github.com/gurkanfikretgunak/bio',
-    stars: 45,
-    forks: 12,
-    watchers: 8,
-    language: 'TypeScript',
-    languageColor: '#3178c6',
-    updatedAt: '2 days ago',
-    isPrivate: false
-  },
-  {
-    id: '2',
-    name: 'web-scraper',
-    description: 'Powerful web scraping tool with automation capabilities',
-    url: 'https://github.com/gurkanfikretgunak/web-scraper',
-    stars: 123,
-    forks: 28,
-    watchers: 15,
-    language: 'Python',
-    languageColor: '#3776ab',
-    updatedAt: '1 week ago',
-    isPrivate: false
-  },
-  {
-    id: '3',
-    name: 'react-components',
-    description: 'Reusable React components library with TypeScript support',
-    url: 'https://github.com/gurkanfikretgunak/react-components',
-    stars: 89,
-    forks: 24,
-    watchers: 12,
-    language: 'JavaScript',
-    languageColor: '#f1e05a',
-    updatedAt: '3 days ago',
-    isPrivate: false
-  },
-  {
-    id: '4',
-    name: 'api-gateway',
-    description: 'Microservices API gateway with authentication and rate limiting',
-    url: 'https://github.com/gurkanfikretgunak/api-gateway',
-    stars: 67,
-    forks: 15,
-    watchers: 9,
-    language: 'Go',
-    languageColor: '#00add8',
-    updatedAt: '5 days ago',
-    isPrivate: false
-  }
-];
-
-
-
-export function GitHubRepositories() {
+export function GitHubRepositories({ repositories = [], favorites, profile }: GitHubRepositoriesProps) {
   const [isQRModalOpen, setIsQRModalOpen] = useState(false);
   const [qrUrl, setQrUrl] = useState('');
   const [qrTitle, setQrTitle] = useState('');
-  const { favorites, profile } = bioData;
 
   const handleQRClick = (url: string, title: string) => {
     setQrUrl(url);
@@ -123,8 +81,9 @@ export function GitHubRepositories() {
             </Button>
           </div>
 
-                     <div className="space-y-2 sm:space-y-3">
-             {mockRepositories.map((repo) => (
+          {repositories.length > 0 ? (
+            <div className="space-y-2 sm:space-y-3">
+              {repositories.map((repo) => (
                <Card key={repo.id} className="hover:shadow-md transition-shadow">
                  <CardContent className="p-2 sm:p-3 md:p-4">
                    <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 sm:gap-3">
@@ -190,7 +149,12 @@ export function GitHubRepositories() {
                  </CardContent>
                </Card>
              ))}
-           </div>
+            </div>
+          ) : (
+            <div className="text-center py-8 text-gray-500 dark:text-gray-400">
+              <p className="text-sm">No repositories available</p>
+            </div>
+          )}
         </div>
 
         {/* Vertical Separator */}

@@ -1,0 +1,9 @@
+# Firebase Configuration
+firebase:
+  apiKey: "AIzaSyDLG-zJizKzF_r9_Ks6n-UpCmSu2IEm4Ns"
+  authDomain: "gurkanlinks.firebaseapp.com"
+  projectId: "gurkanlinks"
+  storageBucket: "gurkanlinks.firebasestorage.app"
+  messagingSenderId: "1077691917249"
+  appId: "1:1077691917249:web:b594dd4369b09eedce8540"
+  measurementId: "G-WF030XRKSJ"

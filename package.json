@@ -23,19 +23,23 @@
   ],
   "homepage": "https://github.com/gurkanfikretgunak/bio#readme",
   "scripts": {
-    "dev": "next dev --turbopack",
-    "build": "next build",
+    "dev": "npm run config:generate && next dev --turbopack",
+    "build": "npm run config:generate && next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "config:generate": "node lib/config/buildTimeConfig.js"
   },
   "dependencies": {
     "@radix-ui/react-avatar": "^1.1.10",
     "@radix-ui/react-separator": "^1.1.7",
     "@radix-ui/react-slot": "^1.2.3",
+    "@types/js-yaml": "^4.0.9",
     "@types/qrcode": "^1.5.5",
     "canvas-confetti": "^1.9.3",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "firebase": "^12.0.0",
+    "js-yaml": "^4.1.0",
     "lucide-react": "^0.525.0",
     "next": "15.4.1",
     "qrcode": "^1.5.4",

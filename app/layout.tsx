@@ -1,67 +1,19 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import bioData from "../data/bio.json";
+import { generateServerMetadata } from "@/lib/metadata/metadataService";
 
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
 });
 
-export const metadata: Metadata = {
-  title: bioData.seo.title,
-  description: bioData.seo.description,
-  keywords: bioData.seo.keywords,
-  authors: [{ name: bioData.profile.name, url: bioData.profile.website }],
-  creator: bioData.profile.name,
-  publisher: bioData.profile.name,
-  formatDetection: {
-    email: false,
-    address: false,
-    telephone: false,
-  },
-  metadataBase: new URL("https://bio.gurkanfikretgunak.com"),
-  alternates: {
-    canonical: "/",
-  },
-  openGraph: {
-    type: "website",
-    locale: "en_US",
-    url: "/",
-    title: bioData.seo.title,
-    description: bioData.seo.description,
-    siteName: bioData.seo.title,
-    images: [
-      {
-        url: bioData.seo.ogImage,
-        width: 1200,
-        height: 630,
-        alt: bioData.seo.title,
-      },
-    ],
-  },
-  twitter: {
-    card: bioData.seo.twitterCard as "summary_large_image",
-    title: bioData.seo.title,
-    description: bioData.seo.description,
-    images: [bioData.seo.ogImage],
-    creator: "@gurkanfikretgunak",
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
-  },
-  verification: {
-    google: "verification_code_here",
-  },
-};
+// Server-side metadata from YAML file
+export async function generateMetadata(): Promise<Metadata> {
+  console.log('🔄 Generating server-side metadata from YAML...');
+  
+  return await generateServerMetadata();
+}
 
 export default function RootLayout({
   children,

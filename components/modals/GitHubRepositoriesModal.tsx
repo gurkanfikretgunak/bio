@@ -27,13 +27,28 @@ interface GitHubRepositoriesModalProps {
   onClose: () => void;
   profile: {
     repositoriesTitle: string;
+    name: string;
+    username: string;
+    shareTitle: string;
+    avatar: string;
+    title: string;
   };
+  favorites: Array<{
+    id: string;
+    name: string;
+    description: string;
+    url: string;
+    stars: number;
+    language: string;
+    languageColor: string;
+  }>;
 }
 
 export const GitHubRepositoriesModal = ({ 
   isOpen, 
   onClose, 
-  profile 
+  profile,
+  favorites
 }: GitHubRepositoriesModalProps) => {
   // Don't render if modal is not open
   if (!isOpen) return null;
@@ -77,7 +92,7 @@ export const GitHubRepositoriesModal = ({
         
         {/* Modal Body - Scrollable Content */}
         <div className="overflow-y-auto max-h-[calc(98vh-60px)] sm:max-h-[calc(96vh-80px)] md:max-h-[calc(90vh-100px)]">
-          <GitHubRepositories />
+          <GitHubRepositories favorites={favorites} profile={profile} />
         </div>
       </div>
     </div>
