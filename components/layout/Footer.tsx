@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 /**
- * Footer Compont
+ * Footer Component
  * 
  * This component renders the application footer with all relevant information including:
  * - Creator information and GitHub link
