@@ -165,7 +165,13 @@
     "repositoryUrl": "https://github.com/gurkanfikretgunak/bio",
     "framework": "Next.js",
     "year": 2025,
-    "badge": "development"
+    "badge": "development",
+    "cursor": {
+      "textBefore": "This app was developed with",
+      "textAfter": "Cursor",
+      "url": "https://www.cursor.com",
+      "logo": "https://www.cursor.com/assets/images/logo.svg"
+    }
   },
   "analytics": {
     "type": "analytics",

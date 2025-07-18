@@ -12,6 +12,7 @@ import { AdditionalLinks } from "@/components/links/AdditionalLinks";
 import { PlatformDetection } from "@/components/ui/PlatformDetection";
 import { ConfettiOverlay } from "@/components/effects/ConfettiOverlay";
 import { GitHubRepositoriesModal } from "@/components/modals/GitHubRepositoriesModal";
+import { Footer } from "@/components/layout/Footer";
 import { useAvatarEffects } from "@/lib/hooks/useAvatarEffects";
 
 /**
@@ -35,7 +36,7 @@ import { useAvatarEffects } from "@/lib/hooks/useAvatarEffects";
  * - Featured links section
  * - Additional links section
  * - Platform detection display
- * - Footer with company information
+ * - Footer component with company information
  * - Various modals (QR code, GitHub repositories)
  * - Confetti overlay for special interactions
  */
@@ -138,51 +139,8 @@ export default function Home() {
 
 
 
-      {/* Footer */}
-      <footer className="border-t border-gray-200 dark:border-gray-700 py-6 sm:py-8 bg-white dark:bg-gray-900">
-        <div className="max-w-md mx-auto px-3 sm:px-4 text-center space-y-3 sm:space-y-4">
-          <div className="text-xs sm:text-sm text-gray-500 dark:text-gray-400">
-            {footer.text} • {" "}
-            <a 
-              href={footer.githubUrl} 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
-            >
-              GitHub
-            </a>
-          </div>
-          
-          <div className="flex items-center justify-center gap-1 text-xs text-gray-400 dark:text-gray-500">
-            <a 
-              href={footer.repositoryUrl} 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
-            >
-              MIT License
-            </a>
-            <span>•</span>
-            <span>Built with Next.js</span>
-          </div>
-          
-          <div className="flex items-center justify-center">
-            <div className="inline-flex items-center gap-1 px-2 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 rounded-full text-xs font-medium">
-              <div className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse"></div>
-              {footer.badge}
-            </div>
-          </div>
-          
-          <div className="text-xs text-gray-400 dark:text-gray-500 leading-relaxed px-2 sm:px-0">
-            A modern, minimalist biolink application designed to showcase your digital presence. 
-            Perfect for sharing your professional profile, social links, and contact information in one place.
-          </div>
-          
-          <div className="text-xs text-gray-400 dark:text-gray-500">
-            © {footer.year} {profile.name}. All rights reserved.
-          </div>
-        </div>
-      </footer>
+      {/* Footer Component */}
+      <Footer profile={profile} footer={footer} />
 
       {/* QR Code Modal */}
       <QRCodeModal 
