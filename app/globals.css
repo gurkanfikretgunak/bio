@@ -152,7 +152,10 @@
       #ff0080 330deg,
       #ff0000 360deg
     );
+    border-radius: 50% !important;
     animation: spin 2s linear infinite;
+    aspect-ratio: 1;
+    box-sizing: border-box;
   }
   
   @keyframes spin {

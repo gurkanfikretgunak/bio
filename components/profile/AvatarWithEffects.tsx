@@ -65,8 +65,20 @@ export const AvatarWithEffects = ({ profile }: AvatarWithEffectsProps) => {
 
       {/* RGB Circle Effect */}
       {isRGBActive && (
-        <div className="absolute w-28 h-28 sm:w-32 sm:h-32 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-full rgb-circle z-10 p-1">
-          <div className="w-full h-full rounded-full bg-white dark:bg-gray-900"></div>
+        <div 
+          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 p-1"
+          style={{
+            width: '112px',
+            height: '112px',
+            '@media (min-width: 640px)': {
+              width: '128px',
+              height: '128px'
+            }
+          }}
+        >
+          <div className="w-full h-full rounded-full rgb-circle">
+            <div className="w-full h-full rounded-full bg-white dark:bg-gray-900"></div>
+          </div>
         </div>
       )}
 
